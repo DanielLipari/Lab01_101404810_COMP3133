@@ -5,7 +5,6 @@ const inputFile = 'input_countries.csv';
 const canadaFile = 'canada.txt';
 const usaFile = 'usa.txt';
 
-// Delete existing files if they exist
 [canadaFile, usaFile].forEach((file) => {
   if (fs.existsSync(file)) {
     fs.unlinkSync(file);
@@ -13,7 +12,6 @@ const usaFile = 'usa.txt';
   }
 });
 
-// Read the CSV and process data
 fs.createReadStream(inputFile)
   .pipe(csv())
   .on('data', (row) => {
